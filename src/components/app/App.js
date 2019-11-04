@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // import Article from '../article/Article';
-import Article from 'components/article/Article';
+import Headline from 'components/headline/Headline';
 import Home from 'components/home/Home';
 
 import theme from 'theme/Theme';
