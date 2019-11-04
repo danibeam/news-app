@@ -16,6 +16,9 @@ const Article = (props) => {
                         'No content to be displayed'
                 }
             </Typography>
+            <Button variant="contained">
+                Read more
+            </Button>
         </div>
 
     )
