@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 // import Article from '../article/Article';
 import Article from 'components/article/Article';
+import Home from 'components/home/Home';
 
 import theme from 'theme/Theme';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -10,20 +11,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <Button variant="contained">
-            Default
-          </Button>
-        </header>
-      </div> */}
-      <Article 
-        title="Test"
-        content="A lot of things..."
-      ></Article>
+      {/* Header */}
+      <Home></Home>
+      {/* Footer */}
     </ThemeProvider>
   );
 }
