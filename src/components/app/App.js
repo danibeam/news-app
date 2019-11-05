@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// import Article from '../article/Article';
-import Headline from 'components/headline/Headline';
 import Home from 'components/home/Home';
 import Header from 'components/header/Header';
 
@@ -40,10 +38,10 @@ function App() {
     <ThemeProvider theme={themeConfig}>
       <CssBaseline />
       {/* Header */}
-      <FormControlLabel
+      {/* <FormControlLabel
         control={<Switch onClick={toggleDarkMode} aria-label="night mode switch" />}
-      />
-      {/* <Header handleMode={toggleDarkMode} /> */}
+      /> */}
+      <Header />
       <Home></Home>
       {/* Footer */}
     </ThemeProvider>

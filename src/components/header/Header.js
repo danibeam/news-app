@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import './Header.css';
 import logo from 'logo.svg';
 
+import NightModeToggle from './nightMode/NightModeToggle';
+
 import { AppBar, Toolbar, Typography, FormGroup, FormControlLabel, Switch } from '@material-ui/core';
 
 const Header = ({handleMode}) => {
@@ -32,12 +34,7 @@ const Header = ({handleMode}) => {
                 {/* <Typography variant="h6" className="centerTitle">
                     Today's news!
                 </Typography> */}
-                <FormGroup className="nigthMode">
-                    <FormControlLabel
-                    control={<Switch onClick={handleMode} aria-label="night mode switch" />}
-                    label='Night mode'
-                    />
-                </FormGroup>
+                <NightModeToggle />
             </Toolbar>
         </AppBar>
     )
