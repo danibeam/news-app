@@ -1,22 +1,39 @@
 import React from 'react';
 import './Header.css';
+import Logo from 'assets/logo';
 import logo from 'logo.svg';
 
 import { AppBar, Toolbar, Typography, FormGroup, FormControlLabel, Switch, IconButton, SvgIcon } from '@material-ui/core';
 
 const Header = () => {
+
+    const classes = {
+        logo: {
+          margin: 'auto',
+          textAlign: 'center',
+          width: '3em',
+          height: '3em'
+        //   maxWidth: '50%',
+        //   maxHeight: '70%',
+        },
+        logoHorizontallyCenter: {
+          position: 'absolute', 
+          left: '50%', 
+          top: '50%',
+          transform: 'translate(-50%, -50%)'
+        }
+    };
     
     return (
-        <AppBar position="static" color="primary">
+        <AppBar position="sticky" color="primary">
             <Toolbar>
-                <IconButton edge="start">
-                    <SvgIcon>
-                        {logo}
-                    </SvgIcon>
-                </IconButton>
-                <Typography variant="h6" className="centerTitle">
+                <div style={classes.logoHorizontallyCenter}>
+                    <img src={logo} style={classes.logo} alt="logo" />
+                    {/* <Logo /> */}
+                </div>
+                {/* <Typography variant="h6" className="centerTitle">
                     Today's news!
-                </Typography>
+                </Typography> */}
                 <FormGroup className="nigthMode">
                     <FormControlLabel
                     control={<Switch aria-label="login switch" />}
