@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Header.css';
-import Logo from 'assets/logo';
 import logo from 'logo.svg';
 
-import { AppBar, Toolbar, Typography, FormGroup, FormControlLabel, Switch, IconButton, SvgIcon } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, FormGroup, FormControlLabel, Switch } from '@material-ui/core';
 
-const Header = () => {
-
+const Header = ({handleMode}) => {
+    
     const classes = {
         logo: {
           margin: 'auto',
@@ -25,18 +24,17 @@ const Header = () => {
     };
     
     return (
-        <AppBar position="sticky" color="primary">
+        <AppBar position="sticky" color="default">
             <Toolbar>
                 <div style={classes.logoHorizontallyCenter}>
                     <img src={logo} style={classes.logo} alt="logo" />
-                    {/* <Logo /> */}
                 </div>
                 {/* <Typography variant="h6" className="centerTitle">
                     Today's news!
                 </Typography> */}
                 <FormGroup className="nigthMode">
                     <FormControlLabel
-                    control={<Switch aria-label="login switch" />}
+                    control={<Switch onClick={handleMode} aria-label="night mode switch" />}
                     label='Night mode'
                     />
                 </FormGroup>
