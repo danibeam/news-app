@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
+import { Context } from "stores/mode";
+
 import './Header.css';
 import logo from 'logo.svg';
 
 import NightModeToggle from './nightMode/NightModeToggle';
 
-import { AppBar, Toolbar, Typography, FormGroup, FormControlLabel, Switch } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 const Header = ({handleMode}) => {
     
@@ -24,6 +26,13 @@ const Header = ({handleMode}) => {
           transform: 'translate(-50%, -50%)'
         }
     };
+
+    // Take global context
+    const { store, dispatch } = useContext(Context)
+
+    const handleChangeMode = () => {
+        dispatch({ type: "changeMode" })
+    }
     
     return (
         <AppBar position="sticky" color="default">
@@ -34,7 +43,7 @@ const Header = ({handleMode}) => {
                 {/* <Typography variant="h6" className="centerTitle">
                     Today's news!
                 </Typography> */}
-                <NightModeToggle />
+                <NightModeToggle changeMode={handleChangeMode} />
             </Toolbar>
         </AppBar>
     )
