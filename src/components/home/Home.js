@@ -4,9 +4,6 @@ import './Home.css';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import { Typography } from '@material-ui/core';
 import Headline from 'components/headline/Headline';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -49,7 +46,7 @@ const Home = () => {
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (
-                        <Grid item xs={12} md key={index}>
+                        <Grid item xs={12} md={4} key={index}>
                             <Paper className={classes.paper}>
                                 <Headline title={headline.title} content={headline.content} key={index}></Headline>
                             </Paper>

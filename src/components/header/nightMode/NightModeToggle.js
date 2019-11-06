@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './NightModeToggle.css';
+
 import { FormControlLabel, Switch } from '@material-ui/core';
 import { NightsStay } from '@material-ui/icons';
 

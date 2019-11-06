@@ -23,10 +23,16 @@ const Header = ({handleMode}) => {
         //   maxHeight: '70%',
         },
         logoHorizontallyCenter: {
-          position: 'absolute', 
-          left: '50%', 
-          top: '50%',
-          transform: 'translate(-50%, -50%)'
+            position: 'absolute', 
+            left: '10%', 
+            top: '50%',
+            transform: 'translate(-50%, -50%)'
+        },
+        nightModeToggle: {
+            position: 'absolute',
+            left: '50%',
+            top:'50%',
+            transform: 'translate(-50%, -50%)'
         }
     };
 
@@ -45,7 +51,9 @@ const Header = ({handleMode}) => {
                     <Logo width="3em" height="3em" fill={fillColor} viewBox="0 0 316.812 316.811" style={classes.logo} />
                     {/* <svg src={logo} style={classes.logo} alt="logo" /> */}
                 </div>
-                <NightModeToggle changeMode={handleChangeMode} />
+                <div style={classes.nightModeToggle}>
+                    <NightModeToggle changeMode={handleChangeMode} />
+                </div>
             </Toolbar>
         </AppBar>
     )
