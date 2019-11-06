@@ -4,7 +4,7 @@ import React from 'react';
 const Logo = (props) => {
     return (
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width={props.width} height={props.height} viewBox={props.viewBox} /*style="enable-background:new 0 0 316.812 316.811;"*/
+        width={props.width} height={props.height} viewBox={props.viewBox} style={props.style} /*style="enable-background:new 0 0 316.812 316.811;"*/
         xmlSpace="preserve">
             <path 
             fill={props.fill}
