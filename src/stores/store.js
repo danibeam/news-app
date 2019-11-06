@@ -1,7 +1,8 @@
 import React from 'react';
 
 export const initialState = { 
-    mode: 'light'
+    mode: 'light',
+    country: 'us'
     // 
  };
 
@@ -10,6 +11,10 @@ export const initialState = {
         case "changeMode":
             return {
                 mode: state.mode === 'light' ? 'dark' : 'light'
+            }
+        case "changeCountry":
+            return {
+                country: action.value
             }
         //  
         default:
