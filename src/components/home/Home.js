@@ -49,7 +49,7 @@ const Home = () => {
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (
-                        <Grid item xs={12} md>
+                        <Grid item xs={12} md key={index}>
                             <Paper className={classes.paper}>
                                 <Headline title={headline.title} content={headline.content} key={index}></Headline>
                             </Paper>
