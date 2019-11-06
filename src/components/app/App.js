@@ -3,7 +3,7 @@ import {
   Context, 
   initialState, 
   reducer 
-} from 'stores/mode';
+} from 'stores/store';
 import './App.css';
 import Home from 'components/home/Home';
 import Header from 'components/header/Header';

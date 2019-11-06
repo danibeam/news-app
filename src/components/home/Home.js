@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './Home.css';
+
+import CountrySelector from './countrySelector/CountrySelector';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +10,11 @@ import { Typography } from '@material-ui/core';
 import Headline from 'components/headline/Headline';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+import { Context } from "stores/store";
+
 const Home = () => {
+
+    const { store, dispatch } = useContext(Context)    
 
     // eslint-disable-next-line no-unused-vars
     const [hasErrors, setHasErrors] = useState(false);
@@ -36,13 +42,17 @@ const Home = () => {
           padding: theme.spacing(2),
         //   textAlign: 'center',
         //   color: theme.palette.text.secondary,
-        },
+        }
     }));
 
     const classes = useStyles();
     
     return headlines ? (  
         <div className={classes.root}>
+            Showing news for <strong> {
+                store.country
+            }</strong>
+            <CountrySelector />
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (

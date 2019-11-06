@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Context } from "stores/mode";
+import { Context } from "stores/store";
 
 import './Header.css';
 import Logo from 'assets/logo';
