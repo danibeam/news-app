@@ -1,1 +1,5 @@
 /*  */
+
+svg:hover {
+    fill: red;
+}

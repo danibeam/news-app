@@ -43,9 +43,10 @@ function App() {
   const themeConfig = createMuiTheme(theme);
 
   const testTheme = createMuiTheme({
-    ...theme,
+    ...themeObject,
     palette: {
-      ...theme.palette,
+      // ...themeObject.palette,
+      secondary: { main: '#FE4225'},
       type: store.mode
     }
   })
