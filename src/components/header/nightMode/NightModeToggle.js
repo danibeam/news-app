@@ -10,6 +10,7 @@ const NightModeToggle = (props) => {
         <React.Fragment>
             <FormControlLabel
                 control={<Switch aria-label="night mode switch"
+                onClick={props.changeMode}
                 />}
             />
             <NightsStay color="secondary" />
