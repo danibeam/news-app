@@ -10,7 +10,7 @@ import Header from 'components/header/Header';
 
 import themeObject from 'theme/Theme';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { CssBaseline, FormControlLabel, Switch } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 
 const useDarkMode = (mode) => {
   const [theme, setTheme] = useState(themeObject)
@@ -37,6 +37,15 @@ function App() {
 
   // Taking stores data
   const [store, dispatch] = useReducer(reducer, initialState);
+
+  window.onbeforeunload = () => {
+    // TODO include here future variables created in store
+    if(store.mode && store.country) {
+      localStorage.setItem('mode', store.mode);
+      localStorage.setItem('country-code', store.country.code);
+      localStorage.setItem('country-label', store.country.label);
+    }
+  }
 
   const [theme, toggleDarkMode] = useDarkMode(store.mode);
 

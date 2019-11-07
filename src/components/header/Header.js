@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Context } from "stores/store";
 
 import './Header.css';
@@ -11,7 +11,12 @@ import { AppBar, Toolbar } from '@material-ui/core';
 
 const Header = ({handleMode}) => {
 
-    const [fillColor, setFillColor] = useState("#000");
+    const [fillColor, setFillColor] = useState();
+
+    useEffect(() => {
+        let logoColor = (store.mode === 'light' ? '#000' : '#fff')
+        setFillColor(logoColor)
+    }, []);
     
     const classes = {
         logo: {

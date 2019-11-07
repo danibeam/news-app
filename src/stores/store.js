@@ -1,8 +1,11 @@
 import React from 'react';
 
 export const initialState = { 
-    mode: 'light',
-    country: { code: 'us', label: 'United States' }
+    mode: localStorage.getItem('mode') || 'light',
+    country: { 
+        code: localStorage.getItem('country-code') || 'us', 
+        label: localStorage.getItem('country-label') || 'United States' 
+    }
     // 
  };
 
@@ -10,10 +13,12 @@ export const initialState = {
      switch(action.type) {
         case "changeMode":
             return {
+                ...state,
                 mode: state.mode === 'light' ? 'dark' : 'light'
             }
         case "changeCountry":
             return {
+                ...state,
                 country: action.payload
             }
         //  
