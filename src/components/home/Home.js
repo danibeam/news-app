@@ -46,13 +46,20 @@ const Home = () => {
     }));
 
     const classes = useStyles();
+
+    const onChangeAutocomplete = (event, value) => {
+        if(value !== null) 
+            dispatch({ type: "changeCountry", payload: value})
+        // console.info(store.country);
+    }
     
     return headlines ? (  
         <div className={classes.root}>
-            Showing news for <strong> {
-                store.country
-            }</strong>
-            <CountrySelector />
+            Showing news for { store.country.label }
+            <strong> ({
+                store.country.code.toUpperCase()
+            })</strong>
+            <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (

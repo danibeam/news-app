@@ -24,42 +24,39 @@ function countryToFlag(isoCode) {
     },
   });
 
-  const onChangeInput = (ev) => {
-    console.info(ev.tarjet.value);
-  }
-
 const CountrySelector = (props) => {
     // onChangeInput.bind();
     const classes = useStyles();
 
     return (
         <Autocomplete
-        style={{ width: 300 }}
-        options={Countries}
-        classes={{
-            option: classes.option
-        }}
-        autoHighlight
-        getOptionLabel={option => option.label}
-        renderOption={option => (
-            <React.Fragment>
-                <span>{countryToFlag(option.code)}</span>
-                {option.label} ({option.code})
-            </React.Fragment>
-        )}
-        renderInput={params => (
-            <TextField
-                {...params}
-                label="Choose a country"
-                variant="outlined"
-                fullWidth
-                onChange={onChangeInput.bind(this)}
-                inputProps={{
-                    ...params.inputProps,
-                    autoComplete: 'disabled', // disable autocomplete and autofill
-                }}
-            />
-        )}
+            style={{ width: 300 }}
+            options={Countries}
+            onChange={props.onChange}
+            classes={{
+                option: classes.option
+            }}
+            autoHighlight
+            getOptionLabel={option => option.label}
+            renderOption={option => (
+                <React.Fragment>
+                    <span>{countryToFlag(option.code)}</span>
+                    {option.label} ({option.code})
+                </React.Fragment>
+            )}
+            renderInput={params => (
+                <TextField
+                    {...params}
+                    label="Choose a country"
+                    variant="outlined"
+                    fullWidth
+                    value={props.value}
+                    inputProps={{
+                        ...params.inputProps,
+                        autoComplete: 'disabled', // disable autocomplete and autofill
+                    }}
+                />
+            )}
         />
     );
 }

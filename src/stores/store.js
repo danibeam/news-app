@@ -2,7 +2,7 @@ import React from 'react';
 
 export const initialState = { 
     mode: 'light',
-    country: 'us'
+    country: { code: 'us', label: 'United States' }
     // 
  };
 
@@ -14,7 +14,7 @@ export const initialState = {
             }
         case "changeCountry":
             return {
-                country: action.value
+                country: action.payload
             }
         //  
         default:
