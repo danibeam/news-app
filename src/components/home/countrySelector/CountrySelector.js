@@ -60,7 +60,6 @@ const CountrySelector = (props) => {
                     label="Choose a country"
                     variant="outlined"
                     fullWidth
-                    // value={props.value}
                     inputProps={{
                         ...params.inputProps,
                         autoComplete: 'disabled', // disable autocomplete and autofill

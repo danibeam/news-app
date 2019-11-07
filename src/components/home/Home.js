@@ -18,14 +18,19 @@ const Home = () => {
 
     // eslint-disable-next-line no-unused-vars
     const [hasErrors, setHasErrors] = useState(false);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [headlines, setHeadlines] = useState();
-    
-    useEffect(() => {
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=" + process.env.REACT_APP_NEWS_API_KEY)
+
+    const fetchHeadlines = (code) => {
+        const country = code || store.country.code;
+        fetch("https://newsapi.org/v2/top-headlines?country=" + country + "&apiKey=" + process.env.REACT_APP_NEWS_API_KEY)
             .then(res => res.json())
             .then(res => setHeadlines({ headlines: res.articles }))
             .catch(() => setHasErrors({ hasErrors: true }));
+    }
+    
+    useEffect(() => {
+        fetchHeadlines();
     }, []);
 
     useEffect(() => {
@@ -48,9 +53,10 @@ const Home = () => {
     const classes = useStyles();
 
     const onChangeAutocomplete = (event, value) => {
-        if(value !== null) 
-            dispatch({ type: "changeCountry", payload: value})
-        // console.info(store.country);
+        if(value !== null) {
+            dispatch({ type: "changeCountry", payload: value});
+            fetchHeadlines(value.code);
+        }
     }
     
     return headlines ? (  

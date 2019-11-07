@@ -5,7 +5,8 @@ export const initialState = {
     country: { 
         code: localStorage.getItem('country-code') || 'us', 
         label: localStorage.getItem('country-label') || 'United States' 
-    }
+    },
+    loading: false
     // 
  };
 
@@ -20,6 +21,11 @@ export const initialState = {
             return {
                 ...state,
                 country: action.payload
+            }
+        case "changeLoading":
+            return {
+                ...state,
+                loading: action.payload
             }
         //  
         default:
