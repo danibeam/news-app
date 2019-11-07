@@ -7,7 +7,7 @@ const Article = (props) => {
     return (
         <div className="headline">
             <Typography variant="h4">{props.title}</Typography>
-
+            <Typography variant="subtitle2">{props.author}</Typography>
             <Typography variant="body1">
                 {
                     props.content ? 

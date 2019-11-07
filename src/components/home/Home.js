@@ -61,17 +61,19 @@ const Home = () => {
     
     return headlines ? (  
         <div className={classes.root}>
-            Showing news for { store.country.label }
-            <strong> ({
-                store.country.code.toUpperCase()
-            })</strong>
+            <h1>
+                Today's headlines for { store.country.label }
+                <strong> ({
+                    store.country.code.toUpperCase()
+                })</strong>
+            </h1>
             <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (
                         <Grid item xs={12} md={4} key={index}>
                             <Paper className={classes.paper}>
-                                <Headline title={headline.title} content={headline.content} key={index}></Headline>
+                                <Headline title={headline.title} author={headline.author} content={headline.content} key={index}></Headline>
                             </Paper>
                         </Grid>
                     ))

@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { green, blue, red, blueGrey } from '@material-ui/core/colors';
+import { fontFamily } from '@material-ui/system';
 
 const themeObject = createMuiTheme({
     palette: {
@@ -20,7 +21,10 @@ const themeObject = createMuiTheme({
     },
     typography: {
       body1: {
-        fontFamily: ["Palatino Linotype", "Book Antiqua", "Palatino", "serif"].join(',')
+        // fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"].join(','),
+        // fontFamily: ["Palatino Linotype", "Book Antiqua", "Palatino", "serif"].join(',')
+        fontFamily: ["Helvetica", "Arial", "sans-serif"].join(','),
+        fontWeight: 200,
       },
       button: {
         textTransform: "capitalize"
