@@ -87,11 +87,10 @@ const Home = () => {
                     headlines.headlines.map((headline, index) => (
                         <Grid item xs={12} md={4} key={index}>
                             <Paper className={classes.paper}>
-                                <Headline title={headline.title} author={headline.author} content={headline.content} key={index}></Headline>
+                                <Headline title={headline.title} author={headline.author} description={headline.description} url={headline.url} sourceName={headline.source.name} key={index}></Headline>
                             </Paper>
                         </Grid>
                     ))
-
                 } 
             </Grid>
         </div>

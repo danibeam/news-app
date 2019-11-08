@@ -16,6 +16,7 @@ const Header = ({handleMode}) => {
     useEffect(() => {
         let logoColor = (store.mode === 'light' ? '#000' : '#fff')
         setFillColor(logoColor)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     const classes = {

@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { green, blue, red, blueGrey } from '@material-ui/core/colors';
-import { fontFamily } from '@material-ui/system';
+import { red } from '@material-ui/core/colors';
+// import { fontFamily } from '@material-ui/system';
 
 const themeObject = createMuiTheme({
     palette: {

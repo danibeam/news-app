@@ -1,7 +1,7 @@
 import React from 'react';
 import './Headline.css';
 
-import { Button, Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 
 const Article = (props) => {
     return (
@@ -10,15 +10,22 @@ const Article = (props) => {
             <Typography variant="subtitle2">{props.author}</Typography>
             <Typography variant="body1">
                 {
-                    props.content ? 
-                        props.content
+                    props.description ? 
+                        props.description
                     :
-                        'No content to be displayed'
+                        'No description provided.'
                 }
             </Typography>
-            <Button variant="contained">
-                Read more
-            </Button>
+            <a href={props.url} target="_blank" rel="noopener noreferrer">
+                <Button variant="text" color="secondary" fullWidth={true}>
+                    {
+                        props.sourceName ?
+                        "Read source - " + props.sourceName
+                    :
+                        "Read source"
+                    }
+                </Button>
+            </a>
         </div>
 
     )
