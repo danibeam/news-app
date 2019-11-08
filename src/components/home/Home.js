@@ -1,12 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './Home.css';
 
 import CountrySelector from './countrySelector/CountrySelector';
+import CategorySelector from './categorySelector/CategorySelector';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+// import { Typography } from '@material-ui/core';
 import Headline from 'components/headline/Headline';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -20,10 +22,13 @@ const Home = () => {
     const [hasErrors, setHasErrors] = useState(false);
     const [loading, setLoading] = useState(false);
     const [headlines, setHeadlines] = useState();
+    const [category, setCategory] = useState();
 
     const fetchHeadlines = (code) => {
         const country = code || store.country.code;
-        fetch("https://newsapi.org/v2/top-headlines?country=" + country + "&apiKey=" + process.env.REACT_APP_NEWS_API_KEY)
+        let apiCategory;
+        category !== undefined ? apiCategory= "&category=" + category : apiCategory = "";
+        fetch("https://newsapi.org/v2/top-headlines?country=" + country + apiCategory + "&apiKey=" + process.env.REACT_APP_NEWS_API_KEY)
             .then(res => res.json())
             .then(res => setHeadlines({ headlines: res.articles }))
             .catch(() => setHasErrors({ hasErrors: true }));
@@ -36,6 +41,10 @@ const Home = () => {
     useEffect(() => {
         // console.info(headlines);
     }, [headlines]);
+
+    useEffect(() => {
+        fetchHeadlines();
+    }, [category]);
 
     const useStyles = makeStyles(theme => ({
         root: {
@@ -58,6 +67,10 @@ const Home = () => {
             fetchHeadlines(value.code);
         }
     }
+
+    const handleOnClickCategory = (value) => {
+        setCategory(value);
+    }
     
     return headlines ? (  
         <div className={classes.root}>
@@ -68,6 +81,7 @@ const Home = () => {
                 })</strong>
             </h1>
             <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
+            <CategorySelector onClick={handleOnClickCategory.bind(this)} />
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (
