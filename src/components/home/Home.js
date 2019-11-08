@@ -25,6 +25,7 @@ const Home = () => {
     const [category, setCategory] = useState();
 
     const fetchHeadlines = (code) => {
+        setHeadlines(null);
         const country = code || store.country.code;
         let apiCategory;
         category !== undefined ? apiCategory= "&category=" + category : apiCategory = "";
