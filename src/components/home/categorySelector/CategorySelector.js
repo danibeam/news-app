@@ -8,7 +8,7 @@ const CategorySelector = (props) => {
     return (
         <React.Fragment>
             {categoriesList.map((category, index) => 
-                <Button variant="contained" color={props.selected} onClick={() => props.onClick(category)} key={index}>{category}</Button>)
+                <Button variant="contained" color={category === props.selected ? "secondary" : "default"} onClick={() => props.onClick(category)} key={index}>{category}</Button>)
             }
         </React.Fragment>
     )

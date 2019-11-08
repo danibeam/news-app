@@ -81,7 +81,7 @@ const Home = () => {
                 })</strong>
             </h1>
             <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
-            <CategorySelector onClick={handleOnClickCategory.bind(this)} />
+            <CategorySelector onClick={handleOnClickCategory.bind(this)} selected={category} />
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (
