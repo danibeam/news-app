@@ -57,6 +57,16 @@ const Home = () => {
           padding: theme.spacing(2),
         //   textAlign: 'center',
         //   color: theme.palette.text.secondary,
+        },
+        top: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+        },
+        categories: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
         }
     }));
 
@@ -75,14 +85,18 @@ const Home = () => {
     
     return headlines ? (  
         <div className={classes.root}>
-            <h1>
-                Today's headlines for { store.country.label }
-                <strong> ({
-                    store.country.code.toUpperCase()
-                })</strong>
-            </h1>
-            <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
-            <CategorySelector onClick={handleOnClickCategory.bind(this)} selected={category} />
+            <div className={classes.top}>
+                <h1>
+                    Today's headlines for { store.country.label }
+                    <strong> ({
+                        store.country.code.toUpperCase()
+                    })</strong>
+                </h1>
+                <CountrySelector onChange={onChangeAutocomplete.bind(this)} value={store.country} />
+            </div>
+            <div className={classes.categories}>
+                <CategorySelector onClick={handleOnClickCategory.bind(this)} selected={category} />
+            </div>
             <Grid container spacing={1}>
                 {
                     headlines.headlines.map((headline, index) => (

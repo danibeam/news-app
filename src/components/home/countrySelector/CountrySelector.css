@@ -1,3 +1,18 @@
 .autocomplete {
     width: 300px;
 }
+
+.autocomplete > button {
+    display: none!important;
+}
+
+.autocomplete > svg {
+    display: none!important;
+}
+
+.MuiButtonBase-root .MuiIconButton-root .MuiAutocomplete-clearIndicator 
+.MuiAutocomplete-clearIndicatorDirty,
+.MuiButtonBase-root .MuiIconButton-root .MuiAutocomplete-popupIndicator
+{
+    display:none!important;
+}
