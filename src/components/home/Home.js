@@ -20,11 +20,13 @@ const Home = () => {
   // eslint-disable-next-line no-unused-vars
   const [hasErrors, setHasErrors] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [headlines, setHeadlines] = useState([])
+  // const [headlines, setHeadlines] = useState()
+  const [headlines, setHeadlines] = useState({headlines: []})
   const [category, setCategory] = useState()
 
   const fetchHeadlines = code => {
-    setHeadlines(null)
+    // setHeadlines(null)
+    setHeadlines({headlines: []})
     const country = code || store.country.code
     let apiCategory
     category !== undefined
