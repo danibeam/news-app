@@ -20,7 +20,7 @@ const Home = () => {
   // eslint-disable-next-line no-unused-vars
   const [hasErrors, setHasErrors] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [headlines, setHeadlines] = useState()
+  const [headlines, setHeadlines] = useState([])
   const [category, setCategory] = useState()
 
   const fetchHeadlines = code => {
