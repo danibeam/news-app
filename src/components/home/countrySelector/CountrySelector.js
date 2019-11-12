@@ -57,8 +57,6 @@ const CountrySelector = props => {
       autoHighlight
       getOptionLabel={option => option.label}
       renderOption={(option, {inputValue}) => {
-        const matches = match(option.label, inputValue)
-        const parts = parse(option.label, matches)
 
         return (
           <div>
