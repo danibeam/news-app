@@ -37,6 +37,11 @@ const useStyles = makeStyles({
       fontSize: 18,
     },
   },
+  button: {
+    '& svg': {
+      display: 'none',
+    },
+  },
 })
 
 const CountrySelector = props => {
@@ -70,6 +75,7 @@ const CountrySelector = props => {
           {...params}
           label='Choose a country'
           variant='outlined'
+          className={classes.button}
           fullWidth
           inputProps={{
             ...params.inputProps,
