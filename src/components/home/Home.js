@@ -69,12 +69,14 @@ const Home = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+      marginTop: '10px',
+      marginBottom: '10px',
     },
-    categories: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    // categories: {
+    //   display: 'flex',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    // },
   }))
 
   const classes = useStyles()
@@ -102,7 +104,8 @@ const Home = () => {
           value={store.country}
         />
       </div>
-      <div className={classes.categories}>
+      {/* <div className={classes.categories}> */}
+      <div className='categories'>
         <CategorySelector
           onClick={handleOnClickCategory.bind(this)}
           selected={category}

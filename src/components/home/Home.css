@@ -2,3 +2,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.categories {
+    display: block;
+    margin: 10px 0 10px 0;
+}
+
+@media (min-width: 700px) {
+    .categories {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
