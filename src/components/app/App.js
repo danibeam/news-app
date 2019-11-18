@@ -69,20 +69,6 @@ function App() {
   })
 
   return (
-<<<<<<< Updated upstream
-    <Context.Provider value={{store, dispatch}}>
-      {/* <ThemeProvider theme={themeConfig}> */}
-      <ThemeProvider theme={testTheme}>
-        <CssBaseline />
-        {/* <FormControlLabel
-          control={<Switch onClick={toggleDarkMode} aria-label="night mode switch" />}
-        /> */}
-        <Header />
-        <Home></Home>
-        <Footer />
-      </ThemeProvider>
-    </Context.Provider>
-=======
     <Router>
       <Context.Provider value={{store, dispatch}}>
         {/* <ThemeProvider theme={themeConfig}> */}
@@ -110,12 +96,14 @@ function App() {
             <Route path='/headline'>
               <Detail />
             </Route>
+            <Route>
+              <Home></Home>
+            </Route>
           </Switch>
           <Footer />
         </ThemeProvider>
       </Context.Provider>
     </Router>
->>>>>>> Stashed changes
   )
 }
 
