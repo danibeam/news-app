@@ -19,12 +19,14 @@ const Home = () => {
 
   // eslint-disable-next-line no-unused-vars
   const [hasErrors, setHasErrors] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [headlines, setHeadlines] = useState()
+  // const [loading, setLoading] = useState(false)
+  // const [headlines, setHeadlines] = useState()
+  const [headlines, setHeadlines] = useState({headlines: []})
   const [category, setCategory] = useState()
 
   const fetchHeadlines = code => {
-    setHeadlines(null)
+    // setHeadlines(null)
+    setHeadlines({headlines: []})
     const country = code || store.country.code
     let apiCategory
     category !== undefined
@@ -92,7 +94,7 @@ const Home = () => {
     setCategory(value)
   }
 
-  return headlines ? (
+  return headlines.headlines ? (
     <div className={classes.root}>
       <div className={classes.top}>
         <h1>
@@ -112,6 +114,7 @@ const Home = () => {
         />
       </div>
       <Grid container spacing={1}>
+        {/* {headlines.headlines.map((headline, index) => ( */}
         {headlines.headlines.map((headline, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Paper className={classes.paper}>

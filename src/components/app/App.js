@@ -4,6 +4,7 @@ import {Context, initialState, reducer} from 'stores/store'
 import './App.css'
 import Home from 'components/home/Home'
 import Header from 'components/header/Header'
+import Footer from 'components/footer/Footer'
 
 import themeObject from 'theme/Theme'
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
@@ -63,13 +64,12 @@ function App() {
       {/* <ThemeProvider theme={themeConfig}> */}
       <ThemeProvider theme={testTheme}>
         <CssBaseline />
-        {/* Header */}
         {/* <FormControlLabel
           control={<Switch onClick={toggleDarkMode} aria-label="night mode switch" />}
         /> */}
         <Header />
         <Home></Home>
-        {/* Footer */}
+        <Footer />
       </ThemeProvider>
     </Context.Provider>
   )
