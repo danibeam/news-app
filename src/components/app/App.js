@@ -42,6 +42,19 @@ const Detail = () => {
   return <h1>Detail</h1>
 }
 
+const NotFound = props => {
+  console.info(props)
+  return (
+    <div className='App'>
+      <h1>404</h1>
+      <p>
+        Couldn't find any resource for{' '}
+        <strong>{props.location.pathname}</strong>
+      </p>
+    </div>
+  )
+}
+
 function App() {
   // Taking stores data
   const [store, dispatch] = useReducer(reducer, initialState)
@@ -74,7 +87,7 @@ function App() {
         {/* <ThemeProvider theme={themeConfig}> */}
         <ThemeProvider theme={testTheme}>
           <Helmet>
-            <title>News App | Today's headlines</title>
+            <title>News App</title>
             <meta
               name='description'
               content='Headlines News. Your news app. Headlines by country. News by topic'
@@ -90,15 +103,15 @@ function App() {
             /> */}
           <Header />
           <Switch>
-            <Route path='/'>
-              <Home></Home>
-            </Route>
-            <Route path='/headline'>
-              <Detail />
-            </Route>
-            <Route>
-              <Home></Home>
-            </Route>
+            <Route path='/' exact component={Home} />
+            <Route
+              path='/headline'
+              exact
+              render={props => {
+                return <h1>Headline</h1>
+              }}
+            />
+            <Route component={props => NotFound(props)} />
           </Switch>
           <Footer />
         </ThemeProvider>

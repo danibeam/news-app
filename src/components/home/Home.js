@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect, useContext} from 'react'
+import {Helmet} from 'react-helmet'
 
 import {makeStyles} from '@material-ui/core/styles'
 import './Home.css'
@@ -97,6 +98,17 @@ const Home = () => {
 
   return headlines.headlines ? (
     <div className={classes.root}>
+      <Helmet>
+        <title>News App | Today's headlines</title>
+        <meta
+          name='description'
+          content='Headlines News. Your news app. Headlines by country. News by topic'
+        />
+        <link
+          rel='canonical'
+          href='https://newsapp-daniel-belmonte.netlify.com/'
+        />
+      </Helmet>
       <div className={classes.top}>
         <h1>
           Today's headlines for {store.country.label}
