@@ -7,10 +7,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete'
 import TextField from '@material-ui/core/TextField'
 import {makeStyles} from '@material-ui/core/styles'
 
-// Highlight
-import parse from 'autosuggest-highlight/parse'
-import match from 'autosuggest-highlight/match'
-
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
 function countryToFlag(isoCode) {
@@ -37,6 +33,11 @@ const useStyles = makeStyles({
       fontSize: 18,
     },
   },
+  button: {
+    '& svg': {
+      display: 'none',
+    },
+  },
 })
 
 const CountrySelector = props => {
@@ -57,9 +58,6 @@ const CountrySelector = props => {
       autoHighlight
       getOptionLabel={option => option.label}
       renderOption={(option, {inputValue}) => {
-        const matches = match(option.label, inputValue)
-        const parts = parse(option.label, matches)
-
         return (
           <div>
             <span>{countryToFlag(option.code)}</span>
@@ -72,6 +70,7 @@ const CountrySelector = props => {
           {...params}
           label='Choose a country'
           variant='outlined'
+          className={classes.button}
           fullWidth
           inputProps={{
             ...params.inputProps,
