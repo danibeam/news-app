@@ -13,9 +13,9 @@
 
 > Today's news
 
-<!-- ### 🏠 [Homepage](https://newsapp-daniel-belmonte.netlify.com/)
+### 🏠 [Homepage](https://newsapp-daniel-belmonte.netlify.com/)
 
-### ✨ [Demo](https://newsapp-daniel-belmonte.netlify.com/) -->
+### ✨ [Demo](https://newsapp-daniel-belmonte.netlify.com/)
 
 ## Install
 

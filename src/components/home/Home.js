@@ -143,8 +143,7 @@ const Home = () => {
           />
         </div>
         <Grid container spacing={1}>
-          {/* {headlines.headlines.map((headline, index) => ( */}
-          {headlines.headlines.map((headline, index) => (
+          {headlines.headlines?.map((headline, index) => (
             <Grid item xs={12} md={4} key={index}>
               <Paper className={classes.paper}>
                 <Headline
